@@ -4,6 +4,10 @@ import { useLoaderData, Link } from "react-router-dom";
 export const careersLoader = async () => {
   const res = await fetch("http://localhost:4000/careers");
 
+  if (!res.ok) {
+    throw new Error("Oops. Could not fetch the careers...");
+  }
+
   return res.json();
 };
 
